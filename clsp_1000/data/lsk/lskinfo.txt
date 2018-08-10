@@ -1,0 +1,69 @@
+PDS_VERSION_ID          = PDS3
+RECORD_TYPE             = STREAM
+
+OBJECT                  = TEXT
+   INTERCHANGE_FORMAT   = ASCII
+   PUBLICATION_DATE     = 2007-06-12 
+   NOTE                 = "Clementine LS-Kernel Information"
+END_OBJECT              = TEXT
+                                                                     
+END 
+
+
+General Information About SPICE LS-Kernels
+==========================================
+
+   In the SPICE system, Leapsecond (or LS) -kernel contains the
+   leapseconds and the values of physical constants required to perform
+   a transformation between Universal Time Coordinated (UTC) and
+   Ephemeris time (ET).
+
+   The information in an LSK file can be manipulated in conjunction
+   with other data using the SPICE Toolkit APIs, calls to which can be
+   integrated into user application programs. The information regarding
+   how to obtain the SPICE system toolkit for a number of languages and
+   computer platforms is located in the ``/software'' subdirectory of the
+   main directory of this data set.
+
+   Refer to the ``time.req'' document provided with the toolkit to get
+   more information about time conversions supported within the SPICE
+   system.
+
+
+Clementine LS-kernels Contained in This Data Set
+================================================
+
+   The following generic LSK files are provided in this data set:
+   
+      naif0008.tls
+
+   This file is the latest generic LSK kernels distributed by NAIF at
+   the time when this archive was created.
+
+
+Kernel File Details
+===================
+
+   The most detailed description of the data in an LSK file is provided
+   in metadata included inside the description area of the file. This
+   information can be viewed using any text editor program.
+   
+
+Contact Information
+===================
+
+   Regarding Clementine project specific information provided in this
+   data set and for general information about SPICE system:
+   
+      Boris Semenov 
+      (818)-354-8136 
+      Boris.Semenov@jpl.nasa.gov
+      
+   address:
+   
+      Navigation and Ancillary Information Facility (NAIF)
+      Jet Propulsion Laboratory
+      MS 301-125L
+      4800 Oak Grove Drive
+      Pasadena CA 91109 USA 
+

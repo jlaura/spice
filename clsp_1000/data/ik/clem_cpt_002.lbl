@@ -1,0 +1,31 @@
+PDS_VERSION_ID               = PDS3
+RECORD_TYPE                  = STREAM
+RECORD_BYTES                 = "N/A"
+^SPICE_KERNEL                = "clem_cpt_002.ti"
+MISSION_NAME                 = "DEEP SPACE PROGRAM SCIENCE EXPERIMENT"
+SPACECRAFT_NAME              = "CLEMENTINE 1"
+DATA_SET_ID                  = "CLEM1-L-SPICE-6-V1.0"
+KERNEL_TYPE_ID               = IK
+PRODUCT_ID                   = "clem_cpt_002.ti"
+PRODUCT_CREATION_TIME        = 2007-06-13T12:27:01
+PRODUCER_ID                  = "NAIF/JPL"
+MISSION_PHASE_NAME           = "N/A"
+PRODUCT_VERSION_TYPE         = ACTUAL
+PLATFORM_OR_MOUNTING_NAME    = "CLEMENTINE SPACECRAFT"
+START_TIME                   = "N/A"
+STOP_TIME                    = "N/A"
+SPACECRAFT_CLOCK_START_COUNT = "N/A"
+SPACECRAFT_CLOCK_STOP_COUNT  = "N/A"
+TARGET_NAME                  = MOON
+INSTRUMENT_NAME              = "CHARGED PARTICLE TELESCOPE"
+NAIF_INSTRUMENT_ID           = -40008
+SOURCE_PRODUCT_ID            = "N/A"
+NOTE                         = "See comments in the file for details"
+OBJECT                       = SPICE_KERNEL
+  INTERCHANGE_FORMAT         = ASCII
+  KERNEL_TYPE                = INSTRUMENT
+  DESCRIPTION                = "Clementine SPICE IK file for Charged
+Particle Telescope (CPT) providing FOV definition and other geometric
+parameters for the instrument, created by NAIF, JPL. "
+END_OBJECT                   = SPICE_KERNEL
+END

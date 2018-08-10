@@ -1,0 +1,78 @@
+PDS_VERSION_ID          = PDS3
+RECORD_TYPE             = STREAM
+
+OBJECT                  = TEXT
+   INTERCHANGE_FORMAT   = ASCII
+   PUBLICATION_DATE     = 2007-06-12 
+   NOTE                 = "Clementine C-Kernel Information"
+END_OBJECT              = TEXT
+                                                                     
+END 
+
+
+General Information About SPICE C-Kernels
+=========================================
+
+   In the SPICE system, pointing data for an instrument platform, or
+   for a specific instrument, are stored C-kernels. The pointing of a
+   platform or an instrument is often expressed in terms of a
+   transformation matrix from some standard inertial reference frame to
+   a instrument-fixed frame. In the past, the instrument was often a
+   camera, and the transformation was thus dubbed the ``C-matrix'';
+   hence the choice of C as the name for the pointing kernel.
+   
+   The data contained in C-kernel files can be accessed and manipulated
+   using the SPICE Toolkit APIs, calls to which can be integrated into
+   user application programs. The information regarding how to obtain
+   the SPICE system toolkit for a number of languages and computer
+   platforms is located in the ``/software'' subdirectory of the main
+   directory of this data set.
+   
+   To use C-kernels, a Spacecraft Clock Kernel (SCLK) is required.
+   Also, for C-Kernels containing orientation of a project-defined
+   frames, a Frame Definitions File is required.
+   
+   Refer to the ``ck.req'' document provided with the toolkit to get
+   more information on how to access C-kernel data.
+
+
+Clementine C-Kernels Contained in This Data Set
+===============================================
+
+   The following Clementine C-kernels are provided in this data set
+   (only name portion of the file name is shown; the extension of all
+   file names is ``.bc''):
+
+      clem_act_ck3   CK file providing the actual orientation of the
+                     Clementine spacecraft bus based on the SPQ files
+                     produced during the mission by the spacecraft
+                     team, NRL
+
+
+Kernel File Details
+===================
+
+   The most detailed description of the data in a binary CK file is
+   provided in metadata included inside the comment area of the file.
+   This information can be viewed using utility programs COMMNT and
+   SPACIT included into the NAIF Toolkit.
+
+  
+Contact Information
+===================
+
+   Regarding Clementine project specific information provided in this
+   data set and for general information about SPICE system:
+   
+      Boris Semenov 
+      (818)-354-8136 
+      Boris.Semenov@jpl.nasa.gov
+      
+   address:
+   
+      Navigation and Ancillary Information Facility (NAIF)
+      Jet Propulsion Laboratory
+      MS 301-125L
+      4800 Oak Grove Drive
+      Pasadena CA 91109 USA 
+

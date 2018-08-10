@@ -1,0 +1,83 @@
+PDS_VERSION_ID                  = PDS3
+LABEL_REVISION_NOTE             = "
+  1995-01-01 UNK          estimated initial release date;
+  2009-07-29 NAIF:Semenov added missing RECORD_TYPE keyword;
+  "
+RECORD_TYPE                     = STREAM
+
+OBJECT                          = REFERENCE
+ REFERENCE_KEY_ID               = "ASMAR&RENZETTI1993"
+ REFERENCE_DESC                 = "Asmar, S.W., and N.A.
+Renzetti, The Deep Space Network as an Instrument for Radio
+Science Research, Jet Propulsion Laboratory Publication 80-93,
+Rev. 1, 15 April 1993."
+END_OBJECT                      = REFERENCE
+
+OBJECT                          = REFERENCE
+ REFERENCE_KEY_ID               = "LUCEYETAL1994"
+ REFERENCE_DESC                 = "Lucey, P., P.D. Spudis, M.
+Zuber, D. Smith, and E. Malaret, Topographic-Compositional Units
+on the Moon and the Early Evolution of the Lunar Crust, Science,
+266, 1855-1858, 1994."
+END_OBJECT                      = REFERENCE
+
+OBJECT                          = REFERENCE
+ REFERENCE_KEY_ID               = "MCEWENETAL1994"
+ REFERENCE_DESC                 = "McEwen, A., M.S. Robinson, E.M.
+Eliason, P.G. Lucey, T.C. Duxbury, and P.D. Spudis, Clementine
+Observations of the Aristarchus Region on the Moon, Science, 266,
+1858-1861, 1994."
+END_OBJECT                      = REFERENCE
+
+OBJECT                          = REFERENCE
+ REFERENCE_KEY_ID               = "NOZETTEETAL1994"
+ REFERENCE_DESC                 = "Nozette, S., P. Rustan, L.P.
+Pleasance, D.M. Horan, P. Regeon, E.M. Shoemaker, P.D. Spudis,
+C.H. Acton, D.N. Baker, J.E. Blamont, B.J. Buratti, M.P. Corson,
+M.E. Davies, T.C. Duxbury, E.M. Eliason, B.M. Jakosky, J.F.
+Kordas, I.T. Lewis, C.L. Lichtenberg, P.G. Lucey, E. Malaret, M.A.
+Massie, J.H. Resnick, C.J. Rollins, H.S. Park, A.S. McEwen, R.E.
+Priest, C.M. Pieters, R.A. Reisse, M.S. Robinson, D.E. Smith, T.C.
+Sorenson, R.W. Vorder Breugge, and M.T. Zuber, The Clementine
+Mission to the Moon: Scientific Overview, Science, 266, 1835-1839,
+1994."
+END_OBJECT                      = REFERENCE
+
+OBJECT                          = REFERENCE
+ REFERENCE_KEY_ID               = "PIETERSETAL1994"
+ REFERENCE_DESC                 = "Pieters, C., M.I. Staid, E.M.
+Fischer, S. Thompkins, and G. He, The Sharper View of Impact
+Craters from Clementine Data, Science, 266, 1844-1848, 1994"
+END_OBJECT                      = REFERENCE
+
+OBJECT                          = REFERENCE
+ REFERENCE_KEY_ID               = "REGEONETAL1994"
+ REFERENCE_DESC                 = "Regeon, P.A., R.J. Chapman,
+and R. Baugh, Clementine -- The Deep Space Program Science
+Experiment (DSPSE),Paper IAA-L-0501, IAA International Conference
+on Low-Cost Planetary Missions, Laurel, MD: The Johns Hopkins
+University Applied Physics Laboratory, 12-15 April 1994."
+END_OBJECT                      = REFERENCE
+
+OBJECT                          = REFERENCE
+ REFERENCE_KEY_ID               = "SHOEMAKERETAL1994"
+ REFERENCE_DESC                 = "Shoemaker, E., M.S. Robinson,
+and E.M. Eliason, The South Pole Region of the Moon as Seen by
+Clementine, Science, 266, 1851-1854, 1994."
+END_OBJECT                      = REFERENCE
+
+OBJECT                          = REFERENCE
+ REFERENCE_KEY_ID               = "SPUDISETAL1994"
+ REFERENCE_DESC                 = "Spudis, P., R.A. Reisse, and
+J.J. Gillis, Ancient Multiring Basins on the Moon Revealed by
+Clementine Laser Altimetry, Science, 266, 1848-1851, 1994"
+END_OBJECT                      = REFERENCE
+
+OBJECT                          = REFERENCE
+ REFERENCE_KEY_ID               = "ZUBERETAL1994"
+ REFERENCE_DESC                 = "Zuber, M., D.E. Smith, F.G.
+Lemoine, and G. Neumann, The Shape and Internal Structure of the
+Moon from the Clementine Mission, Science, 266, 1839-1843, 1994."
+END_OBJECT                      = REFERENCE
+
+END

@@ -1,0 +1,91 @@
+PDS_VERSION_ID          = PDS3
+RECORD_TYPE             = STREAM
+
+OBJECT                  = TEXT
+   INTERCHANGE_FORMAT   = ASCII
+   PUBLICATION_DATE     = 2007-06-12 
+   NOTE                 = "Clementine PC-Kernel Information"
+END_OBJECT              = TEXT
+                                                                     
+END 
+
+
+General Information About SPICE PC-Kernels
+==========================================
+
+   In the SPICE system, the PC-kernels contain planetary attitude and
+   body shape information. The PCK kernel includes orientation and
+   shape information pertaining to extended solar system bodies such as
+   the Sun, the planets, the natural satellites of the planets, comets,
+   and asteroids.
+
+   The purpose of the PCK kernels and associated software is to provide
+   SPICE users with a convenient mechanism for supplying planetary
+   physical constants to application programs. SPICE's PCK software is
+   able to read files conforming to the PCK format and return to a
+   calling application program both the data contained in such files
+   and a small number of commonly used numeric quantities derived from
+   the kernel data. The information regarding how to obtain the SPICE
+   system toolkit for a number of languages and computer platforms is
+   located in the ``/software'' subdirectory of the main directory of
+   this data set.
+
+   Refer to the ``pck.req'' document provided with the toolkit to get
+   more information on how to access PC-kernel data.
+
+
+Clementine PC-kernels Contained in This Data Set
+================================================
+
+   The following PC-Kernel files are provided in this data set:
+   
+      pck00008.tpc                 the latest generic SPICE PCK file
+                                   distributed by NAIF/JPL at the time
+                                   when this archive was created. This
+                                   file is based on the 2000 IAU
+                                   constants.
+ 
+      moon_pa_de403_1950_2198.bpc  PcK file containing high- accuracy
+                                   lunar orientation data from the JPL
+                                   Solar System Dynamics Group's
+                                   planetary ephemeris DE-403. This
+                                   kernel yields the orientation the
+                                   the lunar principal axes (PA)
+                                   reference frame (defined by DE-403)
+                                   relative to the ICRF. Applications
+                                   using this file will also need to
+                                   load a generic lunar frame kernel
+                                   also provided in this data set.
+
+
+Kernel File Details
+===================
+ 
+   The most detailed description of the data in a text PCK file is
+   provided in metadata included inside the description area of the
+   file. This information can be viewed using any text editor program.
+   
+   The most detailed description of the data in a binary PCK file is
+   provided in metadata included inside the comment area of the file.
+   This information can be viewed using utility programs COMMNT and
+   SPACIT included into the NAIF Toolkit.
+
+
+Contact Information
+===================
+
+   Regarding Clementine project specific information provided in this
+   data set and for general information about SPICE system:
+   
+      Boris Semenov 
+      (818)-354-8136 
+      Boris.Semenov@jpl.nasa.gov
+      
+   address:
+   
+      Navigation and Ancillary Information Facility (NAIF)
+      Jet Propulsion Laboratory
+      MS 301-125L
+      4800 Oak Grove Drive
+      Pasadena CA 91109 USA 
+

@@ -1,0 +1,93 @@
+PDS_VERSION_ID          = PDS3
+RECORD_TYPE             = STREAM
+
+OBJECT                  = TEXT
+   INTERCHANGE_FORMAT   = ASCII
+   PUBLICATION_DATE     = 2007-06-12
+   NOTE                 = "This file describes the files in the
+                           extras/mk directory of this volume."
+END_OBJECT              = TEXT
+
+END
+
+Meta-kernels for the Clementine Mission
+=======================================
+
+   This directory contains the meta-kernel files (a.k.a ``furnsh''
+   files) that provide lists of the archived kernels included in this
+   data set suitable for loading into a SPICE-based application via the
+   high level SPICE data loader routine FURNSH. Using these
+   meta-kernels makes it easy to load with one call a comprehensive
+   SPICE data collection for the whole mission. Like the text kernels
+   archived in this data set, these meta-kernels are UNIX text files
+   that have lines terminated with a line feed character, LF (ASCII
+   10).
+
+   The names of the meta-kernels provided in this directory follow this
+   pattern:
+
+      clem_vVV.tm
+
+   where ``VV'' is the file version.
+
+   Multiple versions of a meta-kernel may exist if new kernels were
+   added to the archive in a later release and the meta-kernel had
+   to be updated to incorporate them. The reasons for adding new
+   kernels include (but are not limited to) adding new kinds of
+   kernels, adding new versions of existing kernels containing more
+   complete or more accurate data, and adding new versions of existing
+   kernels superseding the existing kernels that had errors. If more
+   than one meta-kernel file is present, then the file with the latest 
+   version number supersedes all earlier versions.
+ 
+   Although the meta-kernels were created such that on a UNIX
+   workstation they can be loaded into a SPICE-based application
+   directly from the root directory of the data set -- because the
+   PATH_VALUES keyword is set to './data' and '/' is used as the path
+   delimiter -- it is recommended that users make local copies of these
+   files and update the PATH_VALUES keyword in each of them to point to
+   the actual location of the data set's 'data' directory on their
+   system. Additional changes including replacing '/' and '\' in all
+   path specifications and converting UNIX line terminators to
+   terminators native to the user's system may be required to use these
+   meta-kernels on non-UNIX workstation.
+ 
+   The following guidelines were followed to pick and set priority --
+   determined by the order in which the kernel files are listed, with
+   the latest one taking precedence -- for the kernel files included in
+   these meta-kernels:
+
+      -  the latest archived versions of LSK, PCKs, CKs, SCLK, IKs, and
+         mission and lunar FKs were included
+
+      -  the Lunar ME Reference Frame/Body Association Kernel was
+         included to direct the SPICE system to associate the lunar
+         "mean Earth" reference frame 'MOON_ME' with the Moon
+
+      -  both the JPL and NRL spacecraft trajectory SPKs were included
+         with the JPL SPK taking precedence (listed last) and NRL SPK
+         having lower priority and used when the JPL SPK does not
+         provide coverage
+ 
+      -  no EK files were included due to the low likelihood that EKs
+         would be needed for a SPICE-based application using the
+         Clementine SPICE data
+
+
+Contact Information
+===================
+
+   Regarding Clementine project specific information provided in this
+   data set and for general information about SPICE system, contact:
+
+      Boris Semenov
+      (818)-354-8136
+      Boris.Semenov@jpl.nasa.gov
+
+   address:
+
+      Navigation and Ancillary Information Facility (NAIF)
+      Jet Propulsion Laboratory
+      MS 301-125L
+      4800 Oak Grove Drive
+      Pasadena CA 91109 USA

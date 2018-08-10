@@ -1,0 +1,35 @@
+PDS_VERSION_ID               = PDS3
+RECORD_TYPE                  = FIXED_LENGTH
+RECORD_BYTES                 = 1024
+^SPICE_KERNEL                = "clem_jpl.bsp"
+MISSION_NAME                 = "DEEP SPACE PROGRAM SCIENCE EXPERIMENT"
+SPACECRAFT_NAME              = "CLEMENTINE 1"
+DATA_SET_ID                  = "CLEM1-L-SPICE-6-V1.0"
+KERNEL_TYPE_ID               = SPK
+PRODUCT_ID                   = "clem_jpl.bsp"
+PRODUCT_CREATION_TIME        = 2007-06-13T12:27:09
+PRODUCER_ID                  = "SSD GROUP/JPL"
+MISSION_PHASE_NAME           = {
+                               "LUNAR ORBIT INSERTION",
+                               "LUNAR MAPPING",
+                               "LUNAR DEPARTURE"
+                               }
+PRODUCT_VERSION_TYPE         = ACTUAL
+PLATFORM_OR_MOUNTING_NAME    = "N/A"
+START_TIME                   = 1994-02-19T13:00:00
+STOP_TIME                    = 1994-05-04T04:30:00
+SPACECRAFT_CLOCK_START_COUNT = "N/A"
+SPACECRAFT_CLOCK_STOP_COUNT  = "N/A"
+TARGET_NAME                  = MOON
+INSTRUMENT_NAME              = "N/A"
+NAIF_INSTRUMENT_ID           = "N/A"
+SOURCE_PRODUCT_ID            = "N/A"
+NOTE                         = "See comments in the file for details"
+OBJECT                       = SPICE_KERNEL
+  INTERCHANGE_FORMAT         = BINARY
+  KERNEL_TYPE                = EPHEMERIS
+  DESCRIPTION                = "Clementine spacecraft trajectory SPICE SPK
+file containing the trajectory solution by the Solar System Dynamics group,
+JPL. "
+END_OBJECT                   = SPICE_KERNEL
+END

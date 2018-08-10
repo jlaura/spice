@@ -1,0 +1,226 @@
+PDS_VERSION_ID          = PDS3
+RECORD_TYPE             = STREAM
+
+OBJECT                  = TEXT
+   INTERCHANGE_FORMAT   = ASCII
+   PUBLICATION_DATE     = 2007-06-12 
+   NOTE                 = "Clementine E-Kernel Information"
+END_OBJECT              = TEXT
+                                                                     
+END 
+
+
+General Information About SPICE E-Kernels
+=========================================
+
+   The purpose of the Events (E) -kernel is to store different kinds of
+   the spacecraft and science instrument events related information
+   such as spacecraft and instrument commands, status parameters,
+   records of spacecraft activities, ground events, and so on, and to
+   systematize and provide access to this data in relational data base
+   -like fashion.
+
+   The means of an access to the EK data are provided via collection of
+   the SPICE Toolkit APIs, calls to which can be integrated into user
+   application programs, and SPICE system program INSPEKT, a utility
+   program for browsing E-kernel contents. The information regarding
+   how to obtain the SPICE system toolkit for a number of languages and
+   computer platforms is located in the ``/software'' subdirectory of
+   the main directory of this data set.
+   
+   To use E-kernels with INSPEKT program, a Leapseconds (LSK) is
+   required.
+   
+   Refer to the ``ek.req'' and ``inspekt.ug'' documents provided with
+   the toolkit to get more information on how to access E-kernel data.
+
+
+Clementine E-kernels Provided in This Data Set
+==============================================
+
+   The following Clementine E-kernels are provided in this data set:
+
+      clem_moon_940127_940312.bdb
+      clem_moon_940312_940330.bdb
+      clem_moon_940330_940415.bdb
+      clem_moon_940415_940507.bdb
+      clem_sky_940201_940507.bdb
+
+   These files contain parts of the Clementine image catalog in EK
+   format, created by NAIF in 1994, after the end of the mission, to
+   make the Clementine image attributes and derived geometry
+   information available to the NAIF staff in the EK database format
+   accessible using SPICE APIs and INSPEKT application. The four
+   ``moon'' files contain records for subsets of the Moon images taken
+   during the periods identified by the dates in the file names. The
+   ``sky'' file contains records for the Clementine images of the sky.
+
+   It is suggested that only the ``basic'' image attributes provided in
+   this catalog -- image file name, time, camera ID, exposure, gain,
+   compression, etc. -- but not the ``derived'' geometry values --
+   longitudes and latitudes, illumination angles, etc. -- are used in
+   future applications. While the ``basic'' attributes are identical to
+   those from the PDS image labels, the ``derived'' geometric
+   parameters are different and possibly inaccurate because they were
+   computed using older kernels.
+
+   Appendix 1 of this document provides a small example illustrating
+   how the INSPEKT program can be used to query the Clementine image
+   catalog EK files to find a set of images within a time range and to
+   obtain the attributes of a particular image.
+
+
+Kernel File Details
+===================
+
+   The most detailed description of the data in a binary EK file is
+   provided in metadata included inside the comment area of the file.
+   This information can be viewed using utility programs COMMNT and
+   SPACIT included into the NAIF Toolkit.
+
+
+Contact Information
+===================
+
+   Regarding Clementine project specific information provided in this
+   data set and for general information about SPICE system:
+   
+      Boris Semenov 
+      (818)-354-8136 
+      Boris.Semenov@jpl.nasa.gov
+      
+   address:
+   
+      Navigation and Ancillary Information Facility (NAIF)
+      Jet Propulsion Laboratory
+      MS 301-125L
+      4800 Oak Grove Drive
+      Pasadena CA 91109 USA 
+
+
+Appendix 1: Example of Querying Clementine Image Catalog EKs using INSPEKT
+==========================================================================
+
+   This appendix contains a screen-shot of an interactive INSPEKT
+   session illustrating how the INSPEKT program can be used query the
+   Clementine image catalog EK files to find a set of images within a
+   time range and to obtain the attributes of a particular image.
+
+      % inspekt
+
+      ...
+
+      Inspekt> load leapseconds ../lsk/naif0008.tls;
+      Inspekt> load ek clem_moon_940127_940312.bdb;
+      Inspekt> load ek clem_moon_940312_940330.bdb;
+      Inspekt> load ek clem_moon_940330_940415.bdb;
+      Inspekt> load ek clem_moon_940415_940507.bdb;
+      Inspekt> load ek clem_sky_940201_940507.bdb;
+      Inspekt> set format tabular;
+      Inspekt> show summary;
+
+      Column              :  Description
+
+      CLEM_CAT.ALTITUDE   :  DOUBLE PRECISION   (Indexed)
+      CLEM_CAT.CAMERA     :  CHARACTER*(6)      (Indexed)
+      CLEM_CAT.COMP       :  DOUBLE PRECISION   (Indexed)
+      CLEM_CAT.DEC        :  DOUBLE PRECISION   (Indexed)
+      CLEM_CAT.DNMAX      :  INTEGER            (Indexed)
+      CLEM_CAT.DNMEAN     :  DOUBLE PRECISION   (Indexed)
+      CLEM_CAT.DNMIN      :  INTEGER            (Indexed)
+      CLEM_CAT.DNSD       :  DOUBLE PRECISION
+      CLEM_CAT.EMISSION   :  DOUBLE PRECISION   (Indexed)
+      CLEM_CAT.EXPOSURE   :  DOUBLE PRECISION   (Indexed)
+      CLEM_CAT.FILE       :  CHARACTER*(12)     (Indexed)
+      CLEM_CAT.FILTER     :  CHARACTER*(1)      (Indexed)
+      CLEM_CAT.FRAME      :  INTEGER            (Indexed)
+      CLEM_CAT.GAIN       :  CHARACTER*(3)
+      CLEM_CAT.INCIDENCE  :  DOUBLE PRECISION   (Indexed)
+      CLEM_CAT.INCIDENCE_2:  DOUBLE PRECISION
+      CLEM_CAT.LAT        :  DOUBLE PRECISION   (Indexed)
+      CLEM_CAT.LON        :  DOUBLE PRECISION   (Indexed)
+      CLEM_CAT.OFFSET     :  CHARACTER*(3)
+      CLEM_CAT.OLD_FILE   :  CHARACTER*(12)     (Indexed)
+      CLEM_CAT.PASS       :  CHARACTER*(8)      (Indexed)
+      CLEM_CAT.PHASE      :  DOUBLE PRECISION   (Indexed)
+      CLEM_CAT.PHASE_2    :  DOUBLE PRECISION
+      CLEM_CAT.RA         :  DOUBLE PRECISION   (Indexed)
+      CLEM_CAT.REV        :  INTEGER            (Indexed)
+      CLEM_CAT.SC_LAT     :  DOUBLE PRECISION
+      CLEM_CAT.SC_LON     :  DOUBLE PRECISION
+      CLEM_CAT.SOURCE_2   :  CHARACTER*(5)
+      CLEM_CAT.TARGET     :  CHARACTER*(5)      (Indexed)
+      CLEM_CAT.TIME       :  TIME               (Indexed)
+
+      Inspekt> select TIME, FILE from CLEM_CAT
+               where TIME between '1994-MAR-31 12:00' 
+               and '1994-MAR-31 12:26';
+
+
+      Inspekt Report
+
+      TIME                  FILE
+      ==============================================
+      1994 MAR 31 12:25:11  LHD0028A.189
+      1994 MAR 31 12:25:11  LLA0029A.189
+      1994 MAR 31 12:25:11  LNF0030A.189
+      1994 MAR 31 12:25:12  LUE0031A.189
+      1994 MAR 31 12:25:12  LUE0032A.189
+      1994 MAR 31 12:25:12  LNA0033A.189
+      1994 MAR 31 12:25:13  LUD0034A.189
+      1994 MAR 31 12:25:13  LUD0035A.189
+      1994 MAR 31 12:25:26  LHD0036A.189
+      1994 MAR 31 12:25:26  LNE0037A.189
+      1994 MAR 31 12:25:26  LUC0038A.189
+      1994 MAR 31 12:25:26  LUC0039A.189
+      1994 MAR 31 12:25:27  LNC0040A.189
+      1994 MAR 31 12:25:27  LUB0041A.189
+      1994 MAR 31 12:25:27  LUB0042A.189
+      1994 MAR 31 12:25:40  LHD0043A.189
+      1994 MAR 31 12:25:40  LLA0044A.189
+      1994 MAR 31 12:25:40  LND0045A.189
+      1994 MAR 31 12:25:40  LUA0046A.189
+      1994 MAR 31 12:25:40  LUA0047A.189
+      1994 MAR 31 12:25:41  LNB0048A.189
+      1994 MAR 31 12:25:54  LHD0049A.189
+      1994 MAR 31 12:19:44  LLA0001U.189
+      1994 MAR 31 12:19:45  LLA0002U.189
+      1994 MAR 31 12:19:46  LLA0003U.189
+      1994 MAR 31 12:19:47  LLA0004U.189
+      1994 MAR 31 12:19:48  LLA0005U.189
+      1994 MAR 31 12:19:49  LLA0006U.189
+      1994 MAR 31 12:19:50  LLA0007U.189
+      1994 MAR 31 12:19:51  LLA0008U.189
+      1994 MAR 31 12:19:52  LLA0009U.189
+      1994 MAR 31 12:19:53  LNF0010U.189
+      1994 MAR 31 12:19:55  LNE0012U.189
+      1994 MAR 31 12:19:56  LNC0013U.189
+      1994 MAR 31 12:19:57  LND0014U.189
+      1994 MAR 31 12:19:58  LNB0015U.189
+      1994 MAR 31 12:19:59  LNF0016U.189
+      1994 MAR 31 12:20:00  LNA0017U.189
+      1994 MAR 31 12:20:01  LNE0018U.189
+      1994 MAR 31 12:20:03  LND0020U.189
+      1994 MAR 31 12:20:04  LNB0021U.189
+      1994 MAR 31 12:20:05  LNF0022U.189
+      1994 MAR 31 12:20:07  LNE0024U.189
+      1994 MAR 31 12:20:08  LNC0025U.189
+      1994 MAR 31 12:20:09  LND0026U.189
+
+
+      Inspekt> select FILE, CAMERA, TIME, EXPOSURE, FILTER
+               from CLEM_CAT where FILE eq 'LND0026U.189';
+
+
+      Inspekt Report
+
+      FILE    : LND0026U.189
+      CAMERA  : NIR
+      TIME    : 1994 MAR 31 12:20:09
+      EXPOSURE: 33.0000
+      FILTER  : D
+
+
+
+      Inspekt> exit;
+

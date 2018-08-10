@@ -1,0 +1,57 @@
+PDS_VERSION_ID          = PDS3
+RECORD_TYPE             = STREAM
+
+OBJECT                  = TEXT
+   INTERCHANGE_FORMAT   = ASCII
+   PUBLICATION_DATE     = 2007-04-01
+   NOTE                 = "This file describes the files in the 
+                           extras/orbnum directory of this volume."
+END_OBJECT              = TEXT
+
+END
+
+
+Orbit Number Files for the Clementine Mission
+=============================================
+
+   This directory contains an orbit number file "clem.orb" generated
+   using the NAIF's ORBNUM utility program for the archived spacecraft
+   trajectory SPK file "clem_jpl.bsp" produced by the Solar System
+   Dynamics group, JPL. This orbnum file is a plain ASCII text file
+   that has lines terminated with a line feed character, LF (ASCII 10).
+
+   This file provides the orbit numbers that follow the
+   "periapsis-to-periapsis" orbit numbering scheme -- with the orbit
+   number changing at periapsis. Note this convention is different from
+   the "south pole crossing" convention used during mission operations.
+   Due to that the orbit starts defined by this file occur later than
+   those defined by the south pole flyovers.
+ 
+   The information contained in this orbit number file includes the
+   orbit number ("No."), periapsis UTC time ("Periapsis UTC") and SCLK
+   time ("Periapsis SCLK"), planetocentric subsolar longitude and
+   latitude ("SolLon" and "SolLat") in the Moon body-fixed frame based
+   on the DE 245 high precision Moon rotation data, planetocentric
+   subspacecraft longitude and latitude ("SC Lon" and "SC Lat") in the
+   same frame, and spacecraft altitude above Moon ("Alt") relative to
+   1737.4 km spherical Moon surface.
+
+
+Contact Information 
+===================
+
+   Regarding Clementine project specific information provided
+   in this data set and for general information about SPICE system,
+   contact:
+   
+      Boris Semenov 
+      (818)-354-8136 
+      Boris.Semenov@jpl.nasa.gov
+      
+   address:
+   
+      Navigation and Ancillary Information Facility (NAIF)
+      Jet Propulsion Laboratory
+      MS 301-125L
+      4800 Oak Grove Drive
+      Pasadena CA 91109 USA 

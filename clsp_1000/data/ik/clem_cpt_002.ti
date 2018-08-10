@@ -1,0 +1,159 @@
+KPL/IK
+
+\beginlabel
+PDS_VERSION_ID               = PDS3
+RECORD_TYPE                  = STREAM
+RECORD_BYTES                 = "N/A"
+^SPICE_KERNEL                = "clem_cpt_002.ti"
+MISSION_NAME                 = "DEEP SPACE PROGRAM SCIENCE EXPERIMENT"
+SPACECRAFT_NAME              = "CLEMENTINE 1"
+DATA_SET_ID                  = "CLEM1-L-SPICE-6-V1.0"
+KERNEL_TYPE_ID               = IK
+PRODUCT_ID                   = "clem_cpt_002.ti"
+PRODUCT_CREATION_TIME        = 2007-06-13T12:27:01
+PRODUCER_ID                  = "NAIF/JPL"
+MISSION_PHASE_NAME           = "N/A"
+PRODUCT_VERSION_TYPE         = ACTUAL
+PLATFORM_OR_MOUNTING_NAME    = "CLEMENTINE SPACECRAFT"
+START_TIME                   = "N/A"
+STOP_TIME                    = "N/A"
+SPACECRAFT_CLOCK_START_COUNT = "N/A"
+SPACECRAFT_CLOCK_STOP_COUNT  = "N/A"
+TARGET_NAME                  = MOON
+INSTRUMENT_NAME              = "CHARGED PARTICLE TELESCOPE"
+NAIF_INSTRUMENT_ID           = -40008
+SOURCE_PRODUCT_ID            = "N/A"
+NOTE                         = "See comments in the file for details"
+OBJECT                       = SPICE_KERNEL
+  INTERCHANGE_FORMAT         = ASCII
+  KERNEL_TYPE                = INSTRUMENT
+  DESCRIPTION                = "Clementine SPICE IK file for Charged
+Particle Telescope (CPT) providing FOV definition and other geometric
+parameters for the instrument, created by NAIF, JPL. "
+END_OBJECT                   = SPICE_KERNEL
+\endlabel
+
+
+CPT Instrument Kernel
+========================================================================
+     
+     This Clementine instrument kernel (I-kernel) contains the
+     instrument geometric parameters for the Charged Particle
+     Telescope (CPT).
+
+     
+Version and Date
+--------------------------------------------------------
+ 
+     Version 2.0 -- June 11, 2007 -- Boris Semenov, NAIF
+
+        Updated comments. Added FOV definition. Added PLATFORM_ID.
+        Fixed instrument ID in the THETA* keywords (was -40002, now
+        -40008).
+
+     Version 1.0 -- April 7, 1994 -- NAIF
+
+ 
+References
+--------------------------------------------------------
+ 
+     1. "Models of the Clementine Spacecraft and Remote Sensing
+        Science Instruments for Geodesy, Cartography, and Dynamical
+        Sciences", Draft version 1.0, December 1993.
+ 
+
+Implementation Notes
+--------------------------------------------------------
+ 
+     This file is used by the SPICE system as follows: programs that
+     make use of this I-kernel must `load' the kernel, normally during
+     program initialization. Loading the kernel associates data items
+     with their names in a data structure called the `kernel pool'. The
+     SPICE routine FURNSH loads a kernel file into the pool as shown
+     below.
+ 
+          CALL FURNSH( 'this_kernel_name' )          in FORTRAN
+          furnsh_c ( "this_kernel_name" );           in C
+          cspice_furnsh, "this_kernel_name"          in IDL
+ 
+ 
+Naming Conventions
+--------------------------------------------------------
+ 
+     All keywords referencing data in this I-kernel are of the form
+ 
+        INS<instrument-ID>_<data_item_name>
+     
+     The instrument ID is an negative integer value that uniquely
+     identifies an instrument. For Clementine Charged Particle
+     Telescope the instrument ID is -40008.
+ 
+     The upper bound on the length of a name is 32 characters.
+
+ 
+CPT Mounting Orientation
+--------------------------------------------------------
+     
+     The instrument mounting alignment angles given in this section are
+     incorporated into the definition of the instrument reference frame
+     ``CLEM_CPT'' provided in the CLEMENTINE FK. It is recommended that
+     this frame is used with the high level SPICE interfaces to obtain
+     the orientation of the instrument rather than the raw angles
+     provided below.
+
+     The orientation of the CPT coordinate frame relative to the
+     spacecraft frame is given as three angles: thetaX, thetaY, and
+     thetaZ. The spacecraft-fixed to instrument-fixed coordinate
+     transformation, TXYZxyz, can be derived from these angles as
+     follows:
+
+       TXYZxyz = R (thetaZ) R (thetaY) R (thetaX) 
+                  Z          Y          X
+
+     where R  (theta) represents a 3x3 rotation matrix of angle theta
+            i
+     about the i axis.
+
+     The CPT points opposite nadir, or along the -Z axis. The angles are
+     given in radians.
+
+       \begindata
+
+       INS-40008_THETAX = ( 0.0         )
+       INS-40008_THETAY = ( 3.141592654 )
+       INS-40008_THETAZ = ( 0.0         )
+
+       \begintext
+
+
+FOV Definition
+--------------------------------------------------------
+ 
+     The FOV of Charged Particle Telescope is defined below in the
+     ``CLEM_CPT'' reference frame as a 20 deg cone with the boresight
+     along +Z axis.
+
+       \begindata
+
+       INS-40008_FOV_FRAME        = 'CLEM_CPT'
+       INS-40008_FOV_SHAPE        = 'CIRCLE'
+       INS-40008_BORESIGHT        = ( 0.0 0.0 1.0 )
+       INS-40008_FOV_CLASS_SPEC   = 'ANGLES'
+       INS-40008_FOV_REF_VECTOR   = ( 1.0 0.0 0.0 )
+       INS-40008_FOV_REF_ANGLE    = ( 10.0 )
+       INS-40008_FOV_ANGLE_UNITS  = 'DEGREES'
+
+       \begintext
+
+
+Platform ID
+--------------------------------------------------------
+
+     This number is the NAIF instrument ID of the platform on which the
+     instrument is mounted -- the spacecraft bus.
+
+       \begindata
+
+       INS-40008_PLATFORM_ID  = ( -40000 )
+
+       \begintext

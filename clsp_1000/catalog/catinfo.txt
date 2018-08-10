@@ -1,0 +1,49 @@
+PDS_VERSION_ID       = PDS3
+RECORD_TYPE          = STREAM
+
+OBJECT               = TEXT
+  PUBLICATION_DATE   = 2007-04-01
+  NOTE               = "PDS Catalog Objects Supporting CLSP_1000"
+END_OBJECT           = TEXT
+
+END
+
+PDS Catalog Objects Supporting CLSP_1000
+========================================
+
+   The CATALOG subdirectory contains data object files that provide
+   high-level descriptions of the Clementine mission, spacecraft and
+   science team, as well as of the SPICE data set contained on this
+   volume. The descriptions are organized into the following catalog
+   objects:
+
+      SPICE DATA SET
+      INSTRUMENT HOST
+      INSTRUMENT
+      HOUSEKEEPING
+      MISSION
+      REFERENCE
+      PERSONNEL
+      RELEASE
+      and this file, CATINFO.
+
+   The SPICE DATA SET object describes the SPICE data represented on this
+   volume. It provides a data set overview and descriptions of SPICE
+   kernels and the software used to manipulate kernel data.
+
+   The INSTRUMENT HOST object describes the Clementine spacecraft.
+
+   The INSTRUMENT object describes SPICE kernels.
+
+   The HOUSEKEEPING object describes browser and URL information.
+
+   The MISSION object describes the Clementine mission.
+
+   The PERSONNEL object lists the Clementine SPICE data producers.
+
+   The RELEASE object lists the Clementine SPICE data set release dates
+   and IDs.
+
+   The REFERENCE object contains bibliographic citations for reference
+   works cited in other catalog objects.
+

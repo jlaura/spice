@@ -1,0 +1,39 @@
+PDS_VERSION_ID               = PDS3
+RECORD_TYPE                  = FIXED_LENGTH
+RECORD_BYTES                 = 1024
+^SPICE_KERNEL                = "moon_pa_de403_1950_2198.bpc"
+MISSION_NAME                 = "DEEP SPACE PROGRAM SCIENCE EXPERIMENT"
+SPACECRAFT_NAME              = "CLEMENTINE 1"
+DATA_SET_ID                  = "CLEM1-L-SPICE-6-V1.0"
+KERNEL_TYPE_ID               = PCK
+PRODUCT_ID                   = "moon_pa_de403_1950_2198.bpc"
+PRODUCT_CREATION_TIME        = 2007-06-13T12:27:02
+PRODUCER_ID                  = "NAIF/JPL"
+MISSION_PHASE_NAME           = {
+                               LAUNCH,
+                               "LOW EARTH ORBIT",
+                               "EARTH PHASING LOOP A",
+                               "LUNAR ORBIT INSERTION",
+                               "LUNAR MAPPING",
+                               "LUNAR DEPARTURE",
+                               "EARTH PHASING LOOP B"
+                               }
+PRODUCT_VERSION_TYPE         = ACTUAL
+PLATFORM_OR_MOUNTING_NAME    = "N/A"
+START_TIME                   = 1949-12-13T23:59:18.817
+STOP_TIME                    = 2199-06-21T23:58:54.816
+SPACECRAFT_CLOCK_START_COUNT = "N/A"
+SPACECRAFT_CLOCK_STOP_COUNT  = "N/A"
+TARGET_NAME                  = MOON
+INSTRUMENT_NAME              = "N/A"
+NAIF_INSTRUMENT_ID           = "N/A"
+SOURCE_PRODUCT_ID            = "N/A"
+NOTE                         = "See comments in the file for details"
+OBJECT                       = SPICE_KERNEL
+  INTERCHANGE_FORMAT         = BINARY
+  KERNEL_TYPE                = ORIENTATION
+  DESCRIPTION                = "Generic SPICE PCK file containing
+high-accuracy lunar orientation data from the JPL Solar System Dynamics
+Group's planetary ephemeris DE-403, created by NAIF, JPL. "
+END_OBJECT                   = SPICE_KERNEL
+END

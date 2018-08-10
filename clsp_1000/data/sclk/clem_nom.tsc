@@ -1,0 +1,140 @@
+KPL/SCLK
+
+\beginlabel
+PDS_VERSION_ID               = PDS3
+RECORD_TYPE                  = STREAM
+RECORD_BYTES                 = "N/A"
+^SPICE_KERNEL                = "clem_nom.tsc"
+MISSION_NAME                 = "DEEP SPACE PROGRAM SCIENCE EXPERIMENT"
+SPACECRAFT_NAME              = "CLEMENTINE 1"
+DATA_SET_ID                  = "CLEM1-L-SPICE-6-V1.0"
+KERNEL_TYPE_ID               = SCLK
+PRODUCT_ID                   = "clem_nom.tsc"
+PRODUCT_CREATION_TIME        = 2007-06-13T12:27:04
+PRODUCER_ID                  = "NAIF/JPL"
+MISSION_PHASE_NAME           = "N/A"
+PRODUCT_VERSION_TYPE         = PREDICT
+PLATFORM_OR_MOUNTING_NAME    = "N/A"
+START_TIME                   = "N/A"
+STOP_TIME                    = "N/A"
+SPACECRAFT_CLOCK_START_COUNT = "N/A"
+SPACECRAFT_CLOCK_STOP_COUNT  = "N/A"
+TARGET_NAME                  = MOON
+INSTRUMENT_NAME              = "N/A"
+NAIF_INSTRUMENT_ID           = "N/A"
+SOURCE_PRODUCT_ID            = "N/A"
+NOTE                         = "See comments in the file for details"
+OBJECT                       = SPICE_KERNEL
+  INTERCHANGE_FORMAT         = ASCII
+  KERNEL_TYPE                = CLOCK_COEFFICIENTS
+  DESCRIPTION                = "Clementine SPICE SCLK file providing
+nominal correlation data for the Clementine on-board clock, created by NAIF,
+JPL. "
+END_OBJECT                   = SPICE_KERNEL
+\endlabel
+
+
+CLEMENTINE SPICE SCLK Kernel
+===========================================================================
+ 
+     This file contains the data necessary to convert between Deep
+     Space Program Science Experiment (DSPSE), a.k.a. CLEMENTINE,
+     spacecraft clock time (SCLK) and ephemeris time.
+ 
+ 
+Version
+--------------------------------------------------------
+
+     The clock correlation data in this file are version 1, released
+     18-JAN-1994, by NAIF. The original file was called ``dspse002.tsc''.
+
+     The comments were edited on March 13, 2007 by Boris Semenov,
+     NAIF/JPL in preparation for archiving of this file in the
+     CLEMENTINE SPICE PDS data set.
+
+
+Usage
+--------------------------------------------------------
+
+     This file must be loaded into the user's program by a call to the
+     FURNSH subroutine
+
+          CALL FURNSH( 'this_kernel_name' )          in FORTRAN
+          furnsh_c ( "this_kernel_name" );           in C
+          cspice_furnsh, "this_kernel_name"          in IDL
+
+     in order to use the SPICE SCLK family of routines to convert
+     CLEMENTINE spacecraft on-board clock to ET and vice versa.
+
+
+Clock Correlation
+--------------------------------------------------------
+
+     This SCLK kernel provides correlation data for the nominal
+     CLEMENTINE on-board clock. Nominally the CLEMENTINE clock zero
+     count occurred at 1-JAN-1950/00:00:00 UTC and the clock advanced
+     with the UTC time. To account for leapseconds prior to the launch
+     of the spacecraft, the begin time in the data section below was
+     set to 1-JAN-1950/00:00:19.000.
+
+     The granularity of the clock -- the nominal duration of the clock
+     tick -- is 1/8 of a millisecond.
+
+
+Clock Format
+--------------------------------------------------------
+
+     The on-board clock, the conversion for which is provided by this
+     SCLK file, consists of three fields:
+
+          AAAAA.BBBBB.CCCCC
+
+     where:
+
+          AAAAA  -- count of days since 1-JAN-1950/00:00:00, ranging
+                    from 0 to 65535 (for the CLEMENTINE mission
+                    duration -- from 16095 to 16197)
+
+          BBBBB  -- count of 8.192 second intervals since the beginning
+                    of the current day, ranging from 0 to 10546
+
+          CCCCC  -- count of 1/8 of a millisecond intervals since the
+                    beginning of the current 8.192 second interval,
+                    ranging from 0 to 65535
+
+
+References
+--------------------------------------------------------
+ 
+     1. SCLK system                     SCLK required reading
+
+     2. Time systems and conversion     TIME required reading
+
+     3. Kernel pool                     KERNEL required reading
+ 
+
+Kernel Data
+--------------------------------------------------------
+
+
+\begindata
+
+SCLK_KERNEL_ID           = ( @1994-01-18 )
+
+SCLK_DATA_TYPE_40        = ( 1 )
+SCLK01_TIME_SYSTEM_40    = ( 2 )
+SCLK01_N_FIELDS_40       = ( 3 )
+SCLK01_MODULI_40         = ( 65536 10546.875 65536 )
+SCLK01_OFFSETS_40        = ( 0 0 0 )
+SCLK01_OUTPUT_DELIM_40   = ( 1 )
+
+SCLK_PARTITION_START_40  = ( 0.0000000000000E+00 )
+
+SCLK_PARTITION_END_40    = ( 4.5298483199999E+13 )
+
+SCLK01_COEFFICIENTS_40   = (
+ 
+    0.0000000000000E+00    -1.5778799398160E+09    8.6400000000000E+04 )
+
+\begintext
+

@@ -1,0 +1,25 @@
+PDS_VERSION_ID                  = PDS3
+LABEL_REVISION_NOTE             = "
+  2007-06-13 NAIF:Semenov initial;
+  2007-11-26 NAIF:Semenov corrected RELEASE_PARAMETER_TEXT value;
+  2008-07-28 NAIF:Semenov added DATA_PROVIDER_NAME to all objects;
+  2009-07-29 NAIF:Semenov quoted RELEASE_ID values;
+  "
+RECORD_TYPE                     = STREAM
+OBJECT                          = DATA_SET_RELEASE
+  DATA_SET_ID                     = "CLEM1-L-SPICE-6-V1.0"
+  RELEASE_ID                      = "0001"
+  RELEASE_DATE                    = 2007-06-13
+  RELEASE_MEDIUM                  = "ONLINE DISK STORAGE"
+  PRODUCT_TYPE                    = "SPICE_KERNELS"
+  ARCHIVE_STATUS                  = LOCALLY_ARCHIVED
+  DISTRIBUTION_TYPE               = "CLEM1-SPICE"
+  DATA_PROVIDER_NAME              = "JPL-NAIF"
+  RELEASE_PARAMETER_TEXT          = "&RELEASE_ID=0001"
+  DESCRIPTION                     = "
+      This release contains the complete set of SPICE kernels for the
+      Deep Space Program Science Experiment (DSPSE) mission, a.k.a.
+      Clementine.
+      "
+END_OBJECT                      = DATA_SET_RELEASE
+END

@@ -1,0 +1,104 @@
+PDS_VERSION_ID          = PDS3
+RECORD_TYPE             = STREAM
+
+OBJECT                  = TEXT
+   INTERCHANGE_FORMAT   = ASCII
+   PUBLICATION_DATE     = 2007-06-12 
+   NOTE                 = "Clementine I-Kernel Information"
+END_OBJECT              = TEXT
+                                                                     
+END 
+
+
+General Information About SPICE I-Kernels
+=========================================
+
+   In the SPICE system, I-kernels contain field-of-view specifications,
+   internal timing parameters, detector geometry specifications and
+   other geometric parameters for the instrument. These parameters
+   along with knowledge of the spacecraft pointing (C kernel) and
+   instrument mounting alignment (Frames Kernel) allow the user to use
+   SPICE APIs to calculate the view directions of the individual
+   instrument pixels or detectors.
+
+   The data contained in I-kernel files can be accessed and manipulated
+   in conjunction with other data using the SPICE Toolkit APIs, calls to
+   which can be integrated into user application programs. The
+   information regarding how to obtain the SPICE system toolkit for a
+   number of languages and computer platforms is located in the
+   ``/software'' subdirectory of the main directory of this data set.
+
+   Refer to the ``kernel.req'' document provided with the Toolkit to get
+   more information on how to access I-kernel data.
+
+
+Clementine I-kernels Provided in This Data Set
+==============================================
+
+   The following Clementine I-Kernel files are provided in this data
+   set (only name portion of the file name is shown on the right; the
+   extension of all file names is ``.ti''):
+
+      clem_astar_VER   IK file(s) for Star Tracker A providing FOV
+                       definition and other geometric parameters for
+                       the instrument
+ 
+      clem_bstar_VER   IK file(s) for Star Tracker B providing FOV
+                       definition and other geometric parameters for
+                       the instrument
+ 
+      clem_cpt_VER     IK file(s) for Charged Particle Telescope (CPT)
+                       providing FOV definition and other geometric
+                       parameters for the instrument
+ 
+      clem_hires_VER   IK file(s) for High-Resolution Imager (HIRES)
+                       providing FOV definition and other geometric
+                       parameters for the instrument
+ 
+      clem_lidar_VER   IK file(s) for Laser Ranger (LIDAR) providing FOV
+                       definition and other geometric parameters for
+                       the instrument
+ 
+      clem_lwir_VER    IK file(s) for Long Wavelength Infrared Mapping
+                       Spectrometer providing FOV definition and other
+                       geometric parameters for the instrument
+ 
+      clem_nir_VER     IK file(s) for  Near Infrared Mapping Spectrometer
+                       (NIR) providing FOV definition and other
+                       geometric parameters for the instrument
+ 
+      clem_uvvis_VER   IK file(s) for Ultraviolet and Visible Imaging
+                       Camera (UVVIS) providing FOV definition and
+                       other geometric parameters for the instrument
+
+   If this data set contains multiple IK files for a particular
+   instrument, the one with the latest version (VER) supersedes all
+   previous versions.
+
+
+Kernel File Details
+===================
+
+   The most detailed description of the data in an IK file is provided
+   in metadata included inside the description area of the file. This
+   information can be viewed using any text editor program.
+   
+
+Contact Information
+===================
+
+   Regarding Clementine project specific information provided in this
+   data set and for general information about SPICE system:
+   
+      Boris Semenov 
+      (818)-354-8136 
+      Boris.Semenov@jpl.nasa.gov
+      
+   address:
+   
+      Navigation and Ancillary Information Facility (NAIF)
+      Jet Propulsion Laboratory
+      MS 301-125L
+      4800 Oak Grove Drive
+      Pasadena CA 91109 USA 
+

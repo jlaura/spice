@@ -1,0 +1,499 @@
+KPL/IK
+
+\beginlabel
+PDS_VERSION_ID               = PDS3
+RECORD_TYPE                  = STREAM
+RECORD_BYTES                 = "N/A"
+^SPICE_KERNEL                = "clem_lwir_008.ti"
+MISSION_NAME                 = "DEEP SPACE PROGRAM SCIENCE EXPERIMENT"
+SPACECRAFT_NAME              = "CLEMENTINE 1"
+DATA_SET_ID                  = "CLEM1-L-SPICE-6-V1.0"
+KERNEL_TYPE_ID               = IK
+PRODUCT_ID                   = "clem_lwir_008.ti"
+PRODUCT_CREATION_TIME        = 2007-06-13T12:27:02
+PRODUCER_ID                  = "NAIF/JPL"
+MISSION_PHASE_NAME           = "N/A"
+PRODUCT_VERSION_TYPE         = ACTUAL
+PLATFORM_OR_MOUNTING_NAME    = "CLEMENTINE SPACECRAFT"
+START_TIME                   = "N/A"
+STOP_TIME                    = "N/A"
+SPACECRAFT_CLOCK_START_COUNT = "N/A"
+SPACECRAFT_CLOCK_STOP_COUNT  = "N/A"
+TARGET_NAME                  = MOON
+INSTRUMENT_NAME              = "LONG WAVELENGTH INFRARED CAMERA"
+NAIF_INSTRUMENT_ID           = -40004
+SOURCE_PRODUCT_ID            = "N/A"
+NOTE                         = "See comments in the file for details"
+OBJECT                       = SPICE_KERNEL
+  INTERCHANGE_FORMAT         = ASCII
+  KERNEL_TYPE                = INSTRUMENT
+  DESCRIPTION                = "Clementine SPICE IK file for Long
+Wavelength Infrared Mapping Spectrometer (LWIR) providing FOV definition and
+other geometric parameters for the instrument, created by NAIF, JPL. "
+END_OBJECT                   = SPICE_KERNEL
+\endlabel
+
+
+LWIR Instrument Kernel
+========================================================================
+     
+     This Clementine instrument kernel (I-kernel) contains the
+     instrument geometric parameters for the Long Wavelength Infrared
+     Mapping Spectrometer (LWIR).
+
+     
+Version and Date
+--------------------------------------------------------
+ 
+     Version 8.0 -- June 11, 2007 -- Boris Semenov, NAIF
+
+        Updated comments. Added FOV definition. Added PLATFORM_ID.
+
+     Version 7.0 -- Feb 3, 1995
+ 
+ 
+References
+--------------------------------------------------------
+ 
+     1. "Models of the Clementine Spacecraft and Remote Sensing
+        Science Instruments for Geodesy, Cartography, and Dynamical
+        Sciences", Draft version 1.0, December 1993.
+
+ 
+Implementation Notes
+--------------------------------------------------------
+ 
+     This file is used by the SPICE system as follows: programs that
+     make use of this I-kernel must `load' the kernel, normally during
+     program initialization. Loading the kernel associates data items
+     with their names in a data structure called the `kernel pool'. The
+     SPICE routine FURNSH loads a kernel file into the pool as shown
+     below.
+ 
+          CALL FURNSH( 'this_kernel_name' )          in FORTRAN
+          furnsh_c ( "this_kernel_name" );           in C
+          cspice_furnsh, "this_kernel_name"          in IDL
+ 
+ 
+Naming Conventions
+--------------------------------------------------------
+ 
+     All keywords referencing data in this I-kernel are of the form
+ 
+        INS<instrument-ID>_<data_item_name>
+     
+     The instrument ID is an negative integer value that uniquely
+     identifies an instrument. For Clementine Long Wavelength Infrared
+     Mapping Spectrometer the instrument ID is -40004.
+ 
+     The upper bound on the length of a name is 32 characters.
+
+ 
+LWIR Mounting Orientation
+--------------------------------------------------------
+     
+     The instrument mounting alignment angles given in this section are
+     incorporated into the definition of the instrument reference frame
+     ``CLEM_LWIR'' provided in the CLEMENTINE FK. It is recommended
+     that this frame is used with the high level SPICE interfaces to
+     obtain the orientation of the instrument rather than the raw
+     angles provided below.
+
+     The orientation of the LWIR coordinate frame relative to the
+     spacecraft frame is given as three angles: thetaX, thetaY, and
+     thetaZ. The spacecraft-fixed to instrument-fixed coordinate
+     transformation, TXYZxyz, can derived from these angles as
+     follows:
+
+       TXYZxyz = R (thetaZ) R (thetaY) R (thetaX) 
+                  Z          Y          X
+
+     where R  (theta) represents a 3x3 rotation matrix of angle theta
+            i
+     about the i axis.
+
+     The angle values in the keywords below were derived post-launch
+     and included in the IK files used at the end of the mission
+     operations. They are given in radians.
+
+       \begindata
+
+       INS-40004_THETAX = ( 0.00053581608036 )
+       INS-40004_THETAY = ( 0.00019722220548 )
+       INS-40004_THETAZ = ( 3.14159265358979 )
+
+       \begintext
+ 
+ 
+LWIR Camera Optics
+--------------------------------------------------------
+     
+     This section provides the basic optics and detector parameters --
+     focal length (FOCAL_LENGTH), number of pixels per millimeter (K),
+     center sample and line indexes (S0 and L0), total numbers of
+     samples and lines (S_MAX and L_MAX) and optical distortion
+     coefficient (ALPHA0, as defined in [1]).
+
+     Appendix 1 at the bottom of this IK provides the FORTRAN routine
+     LS2INS computing the view vector for a given instrument detector
+     pixel using these parameters. This routine was a part of the
+     PICGEO application computing derived geometry for Clementine
+     images, developed by NAIF for use in project operations and
+     post-mission data processing.
+ 
+     Focal length is given in millimeters, K is given in pixels/mm,
+     and the distortion coefficient, ALPHA0, is given in 1/(mm**2).
+
+       \begindata
+
+       INS-40004_FOCAL_LENGTH = ( 350.0   )
+       INS-40004_K            = ( 20.0000 )
+       INS-40004_S0           = ( 64.5    )
+       INS-40004_L0           = ( 64.5    )
+       INS-40004_S_MAX        = ( 128     )
+       INS-40004_L_MAX        = ( 128     )
+       INS-40004_ALPHA0       = ( 0.0     )
+
+       \begintext
+
+
+Instrument Frame - Line/Sample Coordinates Diagram
+--------------------------------------------------------
+
+     This diagram illustrates the relationship of the instrument frame
+     axes and the sample/line coordinates:
+
+
+             sample                                  sample
+               1                         S            max
+               +-------------------------+-------------+
+        Line 1 |                                       |
+               |                                       |
+               |                                       |
+               |                                       |
+               |                                       |
+               |                  +Z                   |
+               |            (into the page)            |       +X
+               |                   x-------------------------->
+               |                   |(L_0,S_0)          |
+               |                   |                   |
+               |                   |                   |
+               |                   |     *             + L
+               |                   |   (L,S)           |
+               |                   |                   |
+               |                   |                   |
+      Line max +-------------------|-------------------+
+                                   |
+                                   |
+                                   |
+                                   V +Y
+
+     Assuming no optical distortion the view direction in the
+     instrument frame (X,Y,Z) for a given pixel specified by its
+     line/sample coordinates (L,S) is computed as follows:
+
+          X = (S - S_0) / K
+          Y = (L - L_0) / K
+          Z = FOCAL_LENGTH
+
+
+FOV Definition
+--------------------------------------------------------
+
+     The FOV of Long Wavelength Infrared Mapping Spectrometer is
+     defined below in the ``CLEM_LWIR'' reference frame as a 1.05 deg
+     by 1.05 deg rectangle with the boresight along +Z axis. (The
+     angular extents were computed using the values from the section
+     ``Camera Optics'' above.)
+
+       \begindata
+
+       INS-40004_FOV_FRAME        = 'CLEM_LWIR'
+       INS-40004_FOV_SHAPE        = 'RECTANGLE'
+       INS-40004_BORESIGHT        = ( 0.0 0.0 1.0 )
+       INS-40004_FOV_CLASS_SPEC   = 'ANGLES'
+       INS-40004_FOV_REF_VECTOR   = ( 1.0 0.0 0.0 )
+       INS-40004_FOV_REF_ANGLE    = ( 0.525 )
+       INS-40004_FOV_CROSS_ANGLE  = ( 0.525 )
+       INS-40004_FOV_ANGLE_UNITS  = 'DEGREES'
+
+       \begintext
+
+
+Platform ID
+--------------------------------------------------------
+
+     This number is the NAIF instrument ID of the platform on which the
+     instrument is mounted -- the spacecraft bus.
+
+       \begindata
+
+       INS-40004_PLATFORM_ID  = ( -40000 )
+
+       \begintext
+
+
+Appendix 1: LS2INS
+--------------------------------------------------------
+
+C$Procedure      LS2INS (line and sample to instrument coordinates)
+ 
+      SUBROUTINE LS2INS (L0, S0, ALPHA, K, FL, L, S, VINST)
+
+C$ Abstract
+C     
+C     Map line and sample coordinates to instrument coordinates.
+C
+C$ Required_Reading
+C
+C
+C$ Keywords
+C
+C     CAMERA
+C     CONVERSION
+C
+C$ Declarations
+
+      IMPLICIT NONE
+
+      DOUBLE PRECISION      L0
+      DOUBLE PRECISION      S0
+      DOUBLE PRECISION      ALPHA
+      DOUBLE PRECISION      K
+      DOUBLE PRECISION      FL
+      DOUBLE PRECISION      L
+      DOUBLE PRECISION      S
+      DOUBLE PRECISION      VINST (3)
+ 
+C$ Brief_I/O
+C
+C     Variable  I/O  Description
+C     --------  ---  --------------------------------------------------
+C     L0,
+C     S0         I   Line, sample coordinates of FOV center.
+C     ALPHA      I   Distortion coefficient
+C     K          I   Pixel size
+C     FL         I   Focal length of instrument.
+C     L,
+C     S          I   Line, sample coordinates
+C     VINST      O   Vector in instrument coordinates.
+C
+C$ Detailed_Input
+C
+C     L0,
+C     S0          are the line and sample coordinates of the center of
+C                 the field of view.
+C
+C     ALPHA       is the coefficient of radially symmetric optical
+C                 distortion, in units of 1/(mm**2).
+C
+C     K           is the number of pixels per mm.
+C
+C     FL          is the focal length of the instrument in mm.
+C
+C     L,
+C     S           are line and sample coordinates. The origin is located
+C                 in the upper left corner of the field of view, as shown
+C                 in the figure below. n and m are the dimensions of the
+C                 FOV.
+C
+C                  sample                                  sample
+C                    1                         S             n
+C                     -------------------------+-------------
+C             Line 1 |                                       |
+C                    |                                       |
+C                    |                                       |
+C                    |                                       |
+C                    |                                       |
+C                    |                                       |
+C                    |                                       |
+C                    |                                       |
+C                    |                         *             + L
+C                    |                         (L,S)         |
+C                    |                                       |
+C                    |                                       |
+C                    |                                       |
+C                    |                                       |
+C                    |                                       |
+C           Line m   |                                       |
+C                     ---------------------------------------
+C
+C$ Detailed_Output
+C
+C     VINST       is the ray from the point through the focal point,
+C                 in instrument coordinates.
+C
+C$ Parameters
+C
+C     None.
+C
+C$ Exceptions
+C
+C     None.
+C
+C$ Files
+C
+C     None.
+C
+C$ Particulars
+C
+C     This subroutine converts line, sample coordinates to millimeter
+C     space coordinates using the distortion model described in
+C     reference [1].  
+C
+C$ Examples
+C
+C     None.
+C
+C$ Restrictions
+C
+C     None.
+C
+C$ Literature_References
+C
+C     [1]   ``Models of the Clementine Spacecraft and Remote Sensing
+C             Science Instruments for Geodesy, Cartography, and
+C             Dynamical Sciences'', Draft version 1.0, December 1993.
+C
+C$ Author_and_Institution
+C
+C     M.J. Spencer   (JPL)
+C
+C$ Version
+C
+C-    Beta Version 1.0.0, 05-JAN-1994 (MJS)
+C
+C-&
+ 
+C$ Index_Entries
+C
+C     line and sample to x y to instrument fixed
+C
+C-&
+
+C
+C     SPICELIB functions
+C
+      LOGICAL               RETURN
+      DOUBLE PRECISION      VNORMG
+ 
+C
+C     Local parameters
+C
+ 
+C
+C     TOL         is the accuracy used when calculating the inverse
+C                 of the distortion function.  TOL is explained in more
+C                 detail below.
+C
+      DOUBLE PRECISION      TOL
+      PARAMETER           ( TOL    = 1.0D-10      )
+ 
+C
+C     Local variables
+C
+      DOUBLE PRECISION      RMM
+      DOUBLE PRECISION      RMM0
+      DOUBLE PRECISION      RMM1
+      DOUBLE PRECISION      RLS
+      DOUBLE PRECISION      VRLS   (2)
+ 
+C
+C     Statement functions.  These are used to calculate the inverse
+C     of the distortion function.
+C
+      DOUBLE PRECISION      F
+      DOUBLE PRECISION      FPRIME
+      DOUBLE PRECISION      X
+      
+      F(X)      = ALPHA*X**3 + X - RLS
+      FPRIME(X) = 3*ALPHA*X**2 + 1
+ 
+C
+C     Standard SPICE error handling.
+C
+      IF ( RETURN () ) THEN
+         RETURN
+      ELSE
+         CALL CHKIN ( 'LS2INS' )
+      END IF
+
+C
+C     If L and S are at the center of the FOV, return [0,0,1]
+C     We also don't want to proceed if K is zero (LIDAR).
+C
+      IF (((S - S0) .EQ. 0D0 .AND. (L - L0) .EQ. 0D0) .OR.
+     .    K .EQ. 0D0) THEN
+
+         CALL VPACK  (0.0D0, 0.0D0, 1.0D0, VINST)
+         CALL CHKOUT ('LS2INS')
+         RETURN
+
+      ENDIF
+      
+C     
+C     Find the vector pointing from the center of the field of view to
+C     L and S. RLS is the magnitude of the vector and VRLS is its
+C     direction. The vector should be in millimeters.
+C
+      VRLS(1) = (S - S0) / K
+      VRLS(2) = (L - L0) / K
+      RLS     = VNORMG (VRLS, 2)
+ 
+      CALL VHATG (VRLS, 2, VRLS)
+ 
+C
+C     Now find RMM, the distance in millimeter space from center of the
+C     field of view to the point.  RLS and RMM are related to each other
+C     by the following equation:
+C
+C        F(RMM) = ALPHA*RMM**3 + RMM - RLS = 0
+C
+C     where A is the distortion coefficient.  The Newton-Raphson
+C     method will be used to to find RMM.  In order to use
+C     this method the derivative of F(RMM), F'(RMM), must be found.
+C     The above equation is easily differentiable.  F'(RMM) is:
+C
+C        F'(RMM) = 3*ALPHA*RMM**2 + 1
+C
+C     The Newton-Raphson iteration formula is
+C
+C        RMM  =  RMM    -  [ F(RMM)/F'(RMM) ]
+C           i       i-1
+C
+C     F'(RMM) will never be zero, therefore, the fraction in the
+C     above formula will never explode on us.  The code below will
+C     iterate until the absolute difference between RMM-values is less
+C     than TOL.
+C
+C     The first guess, RMM  , will be RLS.
+C                         0
+C     
+      RMM0 = RLS
+      RMM1 = RMM0 - F(RMM0)/FPRIME(RMM0)
+ 
+      DO WHILE (ABS(RMM1 - RMM0) .GT. TOL)
+ 
+         RMM0 = RMM1
+         RMM1 = RMM0 - (F(RMM0) / FPRIME(RMM0))
+ 
+      ENDDO
+ 
+      RMM = RMM1
+ 
+C
+C     Now find X and Y.  The origin is at the center of the field of
+C     view.  The direction of the vector (X, Y) is the same as VRLS,
+C     therefore we only need to scale the vector VRLS by RMM. 
+C
+      CALL VSCLG (RMM, VRLS, 2, VRLS)
+      
+      CALL VPACK (VRLS(1), VRLS(2), FL, VINST)
+      CALL VHAT  (VINST, VINST)
+ 
+C
+C     That's it.
+C
+      CALL CHKOUT ( 'LS2INS' )
+      RETURN
+      END
