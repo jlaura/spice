@@ -1,2 +1,2 @@
 [lfs]
-  url = "http://ADMIN:PASSWORD@localhost:9999/"
+  url = "http://ADMIN:PASSWORD@smalls:9999/"
